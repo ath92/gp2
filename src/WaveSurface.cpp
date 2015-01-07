@@ -133,7 +133,7 @@ void WaveSurface::draw(){
 		}
 	}
 	ofSetColor(255);
-	derivativeTexture.draw(-ofGetWidth()/6,-ofGetHeight()/6,ofGetWidth()/3,ofGetHeight()/3);
+	//derivativeTexture.draw(-ofGetWidth()/6,-ofGetHeight()/6,ofGetWidth()/3,ofGetHeight()/3);
 }
 
 float WaveSurface::avgDelta(int x, int y){

@@ -4,7 +4,7 @@
 
 
 const int width = 20;
-const int height = 20;
+const int height = 40;
 
 class WaveSurface {
 
