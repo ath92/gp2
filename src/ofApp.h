@@ -60,7 +60,7 @@ class ofApp : public ofBaseApp{
 		People people;
 		Playground playground;
 		//UDPInput connection;
-		//TCPInput connection;
-		PlaygroundTest connection;
+		TCPInput connection;
+		//PlaygroundTest connection;
 		ofVideoPlayer video;
 };
