@@ -20,5 +20,7 @@ public:
 	ofVec3f popWeight();
 
 	People * people;
+
+	bool setupComplete;
 };
 #endif

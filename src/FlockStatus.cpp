@@ -14,60 +14,60 @@ void FlockStatus::setup(Swarm * s){
 	gui->addLabel("BEHAVIORAL VARIABLES");
 	
 	gui->addSpacer();
-	gui->addSlider("speed", 0.1, 2, &s->speed);
+	gui->addSlider("speed", 0.1, 2, &s->speedTarget);
 	
 	gui->addSpacer();
-	gui->addSlider("repelStrength", 5, 50, &s->repelStrength);
+	gui->addSlider("repelStrength", 5, 50, &s->repelStrengthTarget);
 
 	gui->addSpacer();
-    gui->addSlider("influence", 0.005, 0.1, &s->influence);
+    gui->addSlider("influence", 0.005, 0.1, &s->influenceTarget);
 	
 	gui->addSpacer();
-    gui->addSlider("mouseInfluence", 0.001, 0.01, &s->mouseInfluence);
+    gui->addSlider("mouseInfluence", 0.001, 0.01, &s->mouseInfluenceTarget);
 	
 	gui->addSpacer();
-	gui->addSlider("maxSpeed", 0.005, 0.050, &s->maxSpeed);
+	gui->addSlider("maxSpeed", 0.005, 0.050, &s->maxSpeedTarget);
 	
 	gui->addSpacer();
-    gui->addSlider("randomness", 0.0005, 0.001, &s->randomness);
+    gui->addSlider("randomness", 0.0005, 0.001, &s->randomnessTarget);
 	
 	gui->addSpacer();
-	gui->addSlider("separationDistance", 0.1, 1, &s->separationDistance);
+	gui->addSlider("separationDistance", 0.1, 1, &s->separationDistanceTarget);
 	
 	gui->addSpacer();
-	gui->addSlider("neighborDistance", 0.5, 5, &s->neighborDistance);
+	gui->addSlider("neighborDistance", 0.5, 5, &s->neighborDistanceTarget);
 	
 	
 	gui->addSpacer();
 	gui->addLabel("AESTHETIC VARIABLES");
 
 	gui->addSpacer();
-    gui->addIntSlider("drawSize", 10, 100, &s->drawSize);
+    gui->addIntSlider("drawSize", 10, 100, &s->drawSizeTarget);
 
 	gui->addSpacer();
-    gui->addSlider("brightness", 0.1, 1, &s->brightness);
+    gui->addSlider("brightness", 0.1, 1, &s->brightnessTarget);
 
 	gui->addSpacer();
-    gui->addSlider("opacity", 0.1, 1, &s->opacity);
+    gui->addSlider("opacity", 0.1, 1, &s->opacityTarget);
 
 	gui->addSpacer();
-    gui->addSlider("redMultiplier", 1, 100, &s->redMultiplier);
+    gui->addSlider("redMultiplier", 1, 100, &s->redMultiplierTarget);
 
 	gui->addSpacer();
-    gui->addSlider("greenMultiplier", 1, 100, &s->greenMultiplier);
+    gui->addSlider("greenMultiplier", 1, 100, &s->greenMultiplierTarget);
 
 	gui->addSpacer();
-    gui->addSlider("blueMultiplier", 1, 100, &s->blueMultiplier);
+    gui->addSlider("blueMultiplier", 1, 100, &s->blueMultiplierTarget);
 
 	
 	gui->addSpacer();
-    gui->addSlider("red", 0.0, 1, &s->red);
+    gui->addSlider("red", 0.0, 1, &s->redTarget);
 
 	gui->addSpacer();
-    gui->addSlider("green", 0, 1, &s->green);
+    gui->addSlider("green", 0, 1, &s->greenTarget);
 
 	gui->addSpacer();
-    gui->addSlider("blue", 0, 1, &s->blue);
+    gui->addSlider("blue", 0, 1, &s->blueTarget);
 
 	
 

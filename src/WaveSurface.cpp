@@ -8,22 +8,28 @@ bool moveWave = true;
 void WaveSurface::setup()
 {
 	//set behvioral variables
-	zMultiplier = 2;
-	damping = 0.0001;
-	forceStrength = 1;
-	influence = 3;
-	random = 0;
+	zMultiplierTarget = 2;
+	dampingTarget = 0.0001;
+	forceStrengthTarget = 1;
+	influenceTarget = 3;
+	randomTarget = 40;
 
-	//set aesthetic variables
-	opacity = 1;
-	opacityMultiplier = 1.0;
-	redMultiplier = 1.0;
-	greenMultiplier = 1.0;
-	blueMultiplier = 1.0;
-	red = 1.0;
-	green = 0.1;
-	blue = 0.1;
-	colorBrightness = 100;
+	//set aesthetic variables targets
+	opacityTarget = 1;
+	opacityMultiplierTarget = 1.0;
+	redMultiplierTarget = 1.0;
+	greenMultiplierTarget = 1.0;
+	blueMultiplierTarget = 1.0;
+	redTarget = 1.0;
+	greenTarget = 0.1;
+	blueTarget = 0.1;
+	colorBrightnessTarget = 100;
+
+	//make sure the actual variables are close as well
+	for(int i=0;i<10;i++){
+		updateToTargets();
+	}
+
 	drawLines = false;
 
 	derivativeTexture.allocate(width,height,GL_RGBA);
@@ -63,7 +69,7 @@ void WaveSurface::setup()
 }
 
 void WaveSurface::update(){
-
+	updateToTargets();
 	float currentgrid[width*height];
 	for (int y = 0; y < height; y++){
 		for (int x = 0; x<width; x++){
@@ -253,4 +259,26 @@ void WaveSurface::smoothDerivative(int smooth){
 			derivativey[y*width+x] = derivativey[y*width+x] * 0.5 + (total.y/smoothWeight) * 0.5;
 		}
 	}
+}
+
+
+void WaveSurface::updateToTargets(){
+	random += (randomTarget-random)*animationSpeed;
+	colorBrightness += (colorBrightnessTarget-colorBrightness)*animationSpeed;
+	opacity += (opacityTarget-opacity)*animationSpeed;
+	opacityMultiplier += (opacityMultiplierTarget-opacityMultiplier)*animationSpeed;
+	redMultiplier += (redMultiplierTarget-redMultiplier)*animationSpeed;
+	greenMultiplier += (greenMultiplierTarget-greenMultiplier)*animationSpeed;
+	blueMultiplier += (blueMultiplierTarget-blueMultiplier)*animationSpeed;
+	red += (redTarget-red)*animationSpeed;
+	green += (greenTarget-green)*animationSpeed;
+	blue += (blueTarget-blue)*animationSpeed;
+
+	//behavioral
+
+	zMultiplier = (zMultiplierTarget-zMultiplier)*animationSpeed;
+	damping += (dampingTarget - damping)*animationSpeed;
+	forceStrength += (forceStrengthTarget - forceStrength)*animationSpeed;
+	influence += (influenceTarget-influence)*animationSpeed;
+	random += (randomTarget-random)*animationSpeed;
 }

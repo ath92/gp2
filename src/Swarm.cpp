@@ -13,32 +13,38 @@ void Swarm::setup(WaveSurface * w){
 	textureRes = 0;
 
 	//Variables for the flocking algorithm
-	influence = 0.02;
-	wallDistance = 0.01;
-	wallInfluence = 1;
-	mouseInfluence = 0.003;
-	repelStrength = 20;
+	influenceTarget = 0.02;
+	wallDistanceTarget = 0.01;
+	wallInfluenceTarget = 1;
+	mouseInfluenceTarget = 0.003;
+	repelStrengthTarget = 20;
 
-	maxSpeed = 0.015;
+	maxSpeedTarget = 0.015;
 
-	randomness = 0.001;
+	randomnessTarget = 0.001;
 
-	separationDistance = 0.7;
-	neighborDistance = 2;
-	crowdDistance = 5;
+	separationDistanceTarget = 0.7;
+	neighborDistanceTarget = 2;
+	crowdDistanceTarget = 5;
 
 	//variables for drawing
 	
-	drawSize = 60;
-	brightness = 1;
-	opacity = 0.5;
-	redMultiplier = 1.0;
-	greenMultiplier = 1.0;
-	blueMultiplier = 1.0;
-	red = 1.0;
-	green = 0.1;
-	blue = 0.1;
-	speed = 1;
+	drawSizeTarget = 60;
+	brightnessTarget = 1;
+	opacityTarget = 0.5;
+	redMultiplierTarget = 1.0;
+	greenMultiplierTarget = 1.0;
+	blueMultiplierTarget = 1.0;
+	redTarget = 1.0;
+	greenTarget = 0.1;
+	blueTarget = 0.1;
+	speedTarget = 1;
+	
+	//make sure the actual variables are close as well
+	for(int i=0;i<10;i++){
+		updateToTargets();
+	}
+
 
 	fs = false;
     
@@ -139,6 +145,7 @@ void Swarm::setup(WaveSurface * w){
 
 //--------------------------------------------------------------
 void Swarm::update(){
+	updateToTargets();
     velPingPong.dst->begin();
     ofClear(0);
     velocity.begin();
@@ -270,11 +277,41 @@ void Swarm::draw(){
 
 
 void Swarm::setColors(){
-	for(int n = 0; n< NUMBER_OF_TRAILS; n++){
+	for(int n = 0; n< NUMBER_OF_TRAILS && n<(sizeof(billboardContainers)/sizeof(*billboardContainers)); n++){
 		for (int i=0; i<numParticles; i++) {
 			int col = ofRandom(255*brightness);
 			ofColor color = ofColor(col*red*redMultiplier,col*green*greenMultiplier,col*blue*blueMultiplier,255*opacity);
+			
+			if(billboardContainers[n].getColors().size() < i+1) return;
 			billboardContainers[n].getColors()[i].set(color);
 		}
 	}
+}
+
+void Swarm::updateToTargets(){
+	//Variables for the flocking algorithm
+	influence += (influenceTarget - influence) * animationSpeed;
+	wallDistance += (wallDistanceTarget - wallDistance) * animationSpeed;
+	wallInfluence += (wallInfluenceTarget - wallInfluence) * animationSpeed;
+	mouseInfluence += (mouseInfluenceTarget - mouseInfluence) * animationSpeed;
+	repelStrength += (repelStrengthTarget - repelStrength) * animationSpeed;
+	maxSpeed += (maxSpeedTarget - maxSpeed) * animationSpeed;
+	randomness += (randomnessTarget - randomness) * animationSpeed;
+	separationDistance += (separationDistanceTarget - separationDistance) * animationSpeed;
+	neighborDistance += (neighborDistanceTarget - neighborDistance) * animationSpeed;
+	crowdDistance += (crowdDistanceTarget - crowdDistance) * animationSpeed;
+	speed += (speedTarget - speed) * animationSpeed;
+
+	//Variables for drawing things
+	drawSize += (float)(drawSizeTarget - drawSize)*animationSpeed;
+	brightness += (brightnessTarget - brightness)*animationSpeed;
+	opacity += (opacityTarget - opacity)*animationSpeed;
+	red += (redTarget - red)*animationSpeed;
+	green += (greenTarget - green)*animationSpeed;
+	blue += (blueTarget - blue)*animationSpeed;
+	redMultiplier += (redMultiplierTarget - redMultiplier)*animationSpeed;
+	greenMultiplier += (greenMultiplierTarget - greenMultiplier)*animationSpeed;
+	blueMultiplier += (blueMultiplierTarget - blueMultiplier)*animationSpeed;
+
+	setColors();
 }

@@ -43,8 +43,17 @@ class WaveSurface {
 		//behavioral variables
 		float zMultiplier, damping, forceStrength, influence;
 
+		//behavioral targets
+		float zMultiplierTarget, dampingTarget, forceStrengthTarget, influenceTarget;
+
 		//aesthetic variables
 		float random, colorBrightness, opacity, opacityMultiplier, redMultiplier, greenMultiplier, blueMultiplier, red, green, blue;
+
+		//aesthetic targets
+		float randomTarget, colorBrightnessTarget, opacityTarget, opacityMultiplierTarget, redMultiplierTarget, greenMultiplierTarget, blueMultiplierTarget, redTarget, greenTarget, blueTarget;
+
+		//update towards targets
+		void updateToTargets();
 
 		//plaatje
 		ofPixels pix;

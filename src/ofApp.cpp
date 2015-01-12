@@ -58,8 +58,6 @@ void ofApp::setup(){
 	surfaceStatus.gui->loadSettings("Cold_surface.xml");
 	flockStatus.gui->loadSettings("Cold_flock.xml");
 
-	//setup UDP
-	udp.setup(&people);
 
 	//load video
 	video.loadMovie("movie.mp4");
@@ -67,7 +65,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	udp.update();
+	connection.update();
 	people.update();
 	swarm.update();
 	surface.update();
@@ -149,6 +147,9 @@ void ofApp::keyPressed(int key){
 		scale = !scale;
 	} else if(key=='w'){
 		surface.drawLines = !surface.drawLines;
+	} else if(key=='i'){
+		//setup Connection
+		connection.setup(&people);
 	}
 }
 

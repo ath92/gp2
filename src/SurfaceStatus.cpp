@@ -15,16 +15,16 @@ void SurfaceStatus::setup(WaveSurface * s){
 	gui->addLabel("BEHAVIORAL VARIABLES");
 
 	gui->addSpacer();
-    gui->addSlider("zMultiplier", 0.0, 2, &s->zMultiplier);
+    gui->addSlider("zMultiplier", 0.0, 2, &s->zMultiplierTarget);
 
 	gui->addSpacer();
-    gui->addSlider("damping", 0.00005, 0.00050, &s->damping);
+    gui->addSlider("damping", 0.00005, 0.00050, &s->dampingTarget);
 
 	gui->addSpacer();
-    gui->addSlider("forceStrength", 0, 2, &s->forceStrength);
+    gui->addSlider("forceStrength", 0, 2, &s->forceStrengthTarget);
 
 	gui->addSpacer();
-    gui->addSlider("influence", 0, 10, &s->influence);
+    gui->addSlider("influence", 0, 10, &s->influenceTarget);
 
 
 
@@ -35,28 +35,28 @@ void SurfaceStatus::setup(WaveSurface * s){
 	gui->addLabel("AESTHETIC VARIABLES");
 
 	gui->addSpacer();
-    gui->addSlider("opacity", 0.0, 1, &s->opacity);
+    gui->addSlider("opacity", 0.0, 1, &s->opacityTarget);
 	
 	gui->addSpacer();
-    gui->addSlider("opacityMultiplier", 1, 1000, &s->opacityMultiplier);
+    gui->addSlider("opacityMultiplier", 1, 1000, &s->opacityMultiplierTarget);
 
 	gui->addSpacer();
-    gui->addSlider("redMultiplier", 1, 100, &s->redMultiplier);
+    gui->addSlider("redMultiplier", 1, 100, &s->redMultiplierTarget);
 
 	gui->addSpacer();
-    gui->addSlider("greenMultiplier", 1, 100, &s->greenMultiplier);
+    gui->addSlider("greenMultiplier", 1, 100, &s->greenMultiplierTarget);
 
 	gui->addSpacer();
-    gui->addSlider("blueMultiplier", 1, 100, &s->blueMultiplier);
+    gui->addSlider("blueMultiplier", 1, 100, &s->blueMultiplierTarget);
 	
 	gui->addSpacer();
-    gui->addSlider("red", 0.0, 2, &s->red);
+    gui->addSlider("red", 0.0, 2, &s->redTarget);
 
 	gui->addSpacer();
-    gui->addSlider("green", 0, 2, &s->green);
+    gui->addSlider("green", 0, 2, &s->greenTarget);
 
 	gui->addSpacer();
-    gui->addSlider("blue", 0, 2, &s->blue);
+    gui->addSlider("blue", 0, 2, &s->blueTarget);
 
 	
 	

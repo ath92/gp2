@@ -9,12 +9,15 @@
 #include "People.h"
 #include "Playground.h"
 #include "UDPInput.h"
+#include "TCPInput.h"
 
 const int floorWidth = 192;
 const int floorHeight = 192;
 
 const int screenWidth = 900;
 const int screenHeight = 900;
+
+const float animationSpeed = 0.05;
 
 
 class ofApp : public ofBaseApp{
@@ -57,7 +60,7 @@ class ofApp : public ofBaseApp{
 
 		People people;
 		Playground playground;
-		UDPInput udp;
-
+		//UDPInput connection;
+		TCPInput connection;
 		ofVideoPlayer video;
 };

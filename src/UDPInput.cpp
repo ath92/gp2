@@ -6,10 +6,12 @@ UDPInput::UDPInput(){
 	udpConnection.Create();
 	udpConnection.Bind(3199);//Port 3199 for LEDGO floor
 	udpConnection.SetNonBlocking(true);
+	setupComplete = false;
 }
 
 void UDPInput::setup(People * p){
 	people = p;
+	setupComplete = true;
 }
 
 #pragma push
@@ -24,6 +26,7 @@ struct Packet
 #pragma pop
 
 void UDPInput::update(){
+	if(!setupComplete) return;
 	char udpMessage[3000];
 	int messageLength = 0;
 	while(messageLength != -1){
