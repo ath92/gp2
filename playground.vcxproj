@@ -148,6 +148,7 @@
     <ClCompile Include="src\People.cpp" />
     <ClCompile Include="src\Person.cpp" />
     <ClCompile Include="src\Playground.cpp" />
+    <ClCompile Include="src\PlaygroundTest.cpp" />
     <ClCompile Include="src\SurfaceStatus.cpp" />
     <ClCompile Include="src\Swarm.cpp" />
     <ClCompile Include="src\TCPInput.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="src\Person.h" />
     <ClInclude Include="src\pingPongBuffer.h" />
     <ClInclude Include="src\Playground.h" />
+    <ClInclude Include="src\PlaygroundTest.h" />
     <ClInclude Include="src\SurfaceStatus.h" />
     <ClInclude Include="src\Swarm.h" />
     <ClInclude Include="src\TCPInput.h" />

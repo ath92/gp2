@@ -10,6 +10,7 @@
 #include "Playground.h"
 #include "UDPInput.h"
 #include "TCPInput.h"
+#include "PlaygroundTest.h"
 
 const int floorWidth = 192;
 const int floorHeight = 192;
@@ -59,6 +60,7 @@ class ofApp : public ofBaseApp{
 		People people;
 		Playground playground;
 		//UDPInput connection;
-		TCPInput connection;
+		//TCPInput connection;
+		PlaygroundTest connection;
 		ofVideoPlayer video;
 };

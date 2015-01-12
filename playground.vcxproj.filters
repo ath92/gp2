@@ -199,6 +199,7 @@
     <ClCompile Include="src\TCPInput.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\PlaygroundTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -443,6 +444,7 @@
     <ClInclude Include="src\TCPInput.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlaygroundTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
