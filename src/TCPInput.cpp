@@ -3,7 +3,7 @@
 
 void TCPInput::setup(People * p){
 	this->people = p;
-	tcp.setup("0.0.0.0", 9009);
+	tcp.setup("127.0.0.1", 9009);
 }
 
 void TCPInput::update(){
