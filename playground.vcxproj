@@ -150,6 +150,7 @@
     <ClCompile Include="src\Playground.cpp" />
     <ClCompile Include="src\SurfaceStatus.cpp" />
     <ClCompile Include="src\Swarm.cpp" />
+    <ClCompile Include="src\UDPInput.cpp" />
     <ClCompile Include="src\VideoRecorder.cpp" />
     <ClCompile Include="src\WaveSurface.cpp" />
   </ItemGroup>
@@ -220,6 +221,7 @@
     <ClInclude Include="src\Playground.h" />
     <ClInclude Include="src\SurfaceStatus.h" />
     <ClInclude Include="src\Swarm.h" />
+    <ClInclude Include="src\UDPInput.h" />
     <ClInclude Include="src\VideoRecorder.h" />
     <ClInclude Include="src\WaveSurface.h" />
   </ItemGroup>

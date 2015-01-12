@@ -13,6 +13,12 @@ void ofApp::setup(){
 	flockStatus.setup(&swarm);
 	surfaceStatus.setup(&surface);
 
+	//setup people tracking
+	people.setup(&surface);
+	//add one person to arbitrary position for testing purposes
+	//Person * p = people.addPerson();
+	//p->setPosition(ofVec2f(1000,500));
+
 	
 	ofSetFrameRate(30);
 	videoRecorder.setup();
@@ -47,17 +53,30 @@ void ofApp::setup(){
 	surfaceStatus.gui->toggleVisible();
 	flockStatus.gui->toggleVisible();
 	saveGUI->toggleVisible();
+
+	//Load Calm to start with:	
+	surfaceStatus.gui->loadSettings("Cold_surface.xml");
+	flockStatus.gui->loadSettings("Cold_flock.xml");
+
+	//setup UDP
+	udp.setup(&people);
+
+	//load video
+	video.loadMovie("movie.mp4");
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+	udp.update();
+	people.update();
 	swarm.update();
 	surface.update();
 	surface.applyForce(mouseX,mouseY);
-	surface.applyForce(ofGetWidth()-mouseX,ofGetHeight()-mouseY);
+	//surface.applyForce(ofGetWidth()-mouseX,ofGetHeight()-mouseY);
 
 	playground.update();
 
+	video.update();
 	//post.init(ofGetWidth(), ofGetHeight());
 	//post.createPass<BloomPass>();
 }
@@ -85,6 +104,8 @@ void ofApp::draw(){
 	ofScale(xFactor,yFactor);
 	fbo.draw(0,0,ofGetWidth(),ofGetHeight());
 	ofScale(1/xFactor,1/yFactor);//scale back for interface
+
+	video.draw(0,0);
 }
 
 //--------------------------------------------------------------
@@ -113,7 +134,7 @@ void ofApp::keyPressed(int key){
 		if(name!=""){
 			surfaceStatus.gui->loadSettings(name+"_surface.xml");
 			flockStatus.gui->loadSettings(name+"_flock.xml");
-			cout << "saved to: " << name << ".xml" << endl;
+			cout << "Loaded " << name << ".xml" << endl;
 		} else {
 			cout << "none active!" << endl;
 		}

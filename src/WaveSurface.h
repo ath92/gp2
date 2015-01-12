@@ -4,7 +4,7 @@
 
 
 const int width = 20;
-const int height = 40;
+const int height = 20;
 
 class WaveSurface {
 
@@ -46,5 +46,7 @@ class WaveSurface {
 		//aesthetic variables
 		float random, colorBrightness, opacity, opacityMultiplier, redMultiplier, greenMultiplier, blueMultiplier, red, green, blue;
 
-
+		//plaatje
+		ofPixels pix;
+		ofTexture tex;
 };

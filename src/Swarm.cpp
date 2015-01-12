@@ -12,8 +12,6 @@ void Swarm::setup(WaveSurface * w){
 	numParticles = 1000;
 	textureRes = 0;
 
-
-
 	//Variables for the flocking algorithm
 	influence = 0.02;
 	wallDistance = 0.01;

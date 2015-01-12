@@ -24,7 +24,7 @@ void WaveSurface::setup()
 	green = 0.1;
 	blue = 0.1;
 	colorBrightness = 100;
-	drawLines = true;
+	drawLines = false;
 
 	derivativeTexture.allocate(width,height,GL_RGBA);
 	derivativePixels.allocate(width,height,OF_PIXELS_RGB);
@@ -35,6 +35,7 @@ void WaveSurface::setup()
 	for (int y = 0; y < height; y++){
 		for (int x = 0; x<width; x++){
 			mesh.addVertex(ofPoint(x*scale.x-width*(scale.x/2) +ofRandom(random) ,y*scale.y-height*(scale.y/2) + ofRandom(random) ,0)); 
+			mesh.addTexCoord(ofPoint(x*50, y*50));
 			mesh.addColor(ofFloatColor(0,0,0));  
 			grid[y*width+x] = 0;
 			deltagrid[y*width+x] = 0;
@@ -56,6 +57,9 @@ void WaveSurface::setup()
 		}
 	}
 	staystill = false;
+
+	//plaatje
+	ofLoadImage(tex, "images/outer_space.jpg");
 }
 
 void WaveSurface::update(){
@@ -91,16 +95,18 @@ void WaveSurface::update(){
 				derivativey[x+y*width] = derivativey[x+y*width]<0?-derivativey[x+y*width]*derivativey[x+y*width]/1000:derivativey[x+y*width]*derivativey[x+y*width]/1000;//square
 			}
 			//Dampen out the minor things that happen sometimes.
-			if(derivativex[x+y*width] < 50 && derivativex[x+y*width] > -50) derivativex[x+y*width] = 0;
-			if(derivativey[x+y*width] < 50 && derivativey[x+y*width] > -50) derivativey[x+y*width] = 0; 
+			//if(derivativex[x+y*width] < 50 && derivativex[x+y*width] > -50) derivativex[x+y*width] = 0;
+			//if(derivativey[x+y*width] < 50 && derivativey[x+y*width] > -50) derivativey[x+y*width] = 0; 
 
 			derivativePixels.setColor(x,y,ofFloatColor(derivativex[x+y*width]/80 + 0.5, derivativey[x+y*width]/80 + 0.5, 0));
-			mesh.setColor(y*width+x, ofFloatColor(col*redMultiplier*red,col*greenMultiplier*green,col*blueMultiplier*blue,opacity*opacityMultiplier));
+			mesh.setColor(y*width+x, ofFloatColor(col*redMultiplier*red + .3,col*greenMultiplier*green + .3,col*blueMultiplier*blue + .3,opacity*opacityMultiplier));
+			//mesh.setColor(y*width+x, ofFloatColor(1,1,1));
 
 			//update the mesh
 			ofVec3f vert = mesh.getVertex(y*width+x);
 			float z = sqrt(abs(grid[y*width+x]))*2;
 			z *= 2;
+			z=0;
 			vert.z = grid[y*width+x] > 0 ? z : -z;
 			vert.z += 100;//zoom
 			vert.z += offset[y*width+x];
@@ -109,7 +115,6 @@ void WaveSurface::update(){
 	}
 
 	smoothDerivative(10);
-	cout << derivativey[254] << endl;
 	derivativeTexture.loadData(derivativePixels);
 	for(int i = 0; i < width*height;i++){
 		deltagrid[i] = grid[i]-currentgrid[i];
@@ -123,6 +128,7 @@ void WaveSurface::draw(){
 	ofSetColor(ofColor(0,0,0,.2));
 	ofRect(0,0,ofGetWidth(), ofGetHeight());
 	ofEnableBlendMode(OF_BLENDMODE_ADD);
+	tex.bind();
 	mesh.draw();
 
 
@@ -232,7 +238,6 @@ void WaveSurface::smoothDerivative(int smooth){
 		smoothWeight += 1/i*2;
 	}
 
-	cout << smoothWeight << endl;
 
 	for (int y = 0; y < height; y++){
 		for (int x = 0; x<width; x++){

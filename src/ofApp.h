@@ -8,9 +8,13 @@
 #include "SurfaceStatus.h"
 #include "People.h"
 #include "Playground.h"
+#include "UDPInput.h"
 
-const int floorWidth = 304;
-const int floorHeight = 304;
+const int floorWidth = 192;
+const int floorHeight = 192;
+
+const int screenWidth = 900;
+const int screenHeight = 900;
 
 
 class ofApp : public ofBaseApp{
@@ -53,5 +57,7 @@ class ofApp : public ofBaseApp{
 
 		People people;
 		Playground playground;
+		UDPInput udp;
 
+		ofVideoPlayer video;
 };
