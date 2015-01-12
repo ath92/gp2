@@ -21,8 +21,7 @@ void ofApp::setup(){
 
 	
 	ofSetFrameRate(30);
-	videoRecorder.setup();
-
+	
 	saveNames.push_back("Energetic");
 	saveNames.push_back("Chaotic");
 	saveNames.push_back("Abrupt");
@@ -60,7 +59,7 @@ void ofApp::setup(){
 
 
 	//load video
-	video.loadMovie("movie.mp4");
+	//video.loadMovie("movie.mp4");
 }
 
 //--------------------------------------------------------------
@@ -74,7 +73,7 @@ void ofApp::update(){
 
 	playground.update();
 
-	video.update();
+	//video.update();
 	//post.init(ofGetWidth(), ofGetHeight());
 	//post.createPass<BloomPass>();
 }
@@ -91,29 +90,23 @@ void ofApp::draw(){
 
 	fbo.begin();
 	ofClear(0);
-	videoRecorder.beforeDraw();
 	cam.begin();
 	ofEnableBlendMode ( OF_BLENDMODE_ADD ) ;  
 	surface.draw();
 	swarm.draw();
 	cam.end();
-	videoRecorder.afterDraw();
 	fbo.end();
 	ofScale(xFactor,yFactor);
 	fbo.draw(0,0,ofGetWidth(),ofGetHeight());
 	ofScale(1/xFactor,1/yFactor);//scale back for interface
 
-	video.draw(0,0);
+	//video.draw(0,0);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 	if(key=='f'){
 		ofToggleFullscreen();
-	} else if(key=='s'){
-		videoRecorder.saveImages();
-	} else if(key=='a'){
-		videoRecorder.recording = !videoRecorder.recording;
 	} else if(key=='h'){
 		surfaceStatus.gui->toggleVisible();
 		flockStatus.gui->toggleVisible();

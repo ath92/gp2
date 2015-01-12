@@ -40,8 +40,6 @@ class ofApp : public ofBaseApp{
 		Swarm swarm;
 		WaveSurface surface;
 
-		VideoRecorder videoRecorder;
-
 		ofEasyCam cam, cam2;
 
 		FlockStatus flockStatus;
