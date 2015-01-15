@@ -65,7 +65,6 @@ void TCPInput::update(){
 			float factoredX = ofGetWidth() - ((*tracker).x+6000) *ofGetWidth()/(float)trackerWidth;
 			float factoredY = ((*tracker).y+40000) *ofGetHeight()/(float)trackerHeight;
 			p->setPosition(ofVec2f(factoredX , factoredY));//update factors.
-			cout << p->pos.x << endl;
 		}
     }
 	

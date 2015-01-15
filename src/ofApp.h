@@ -15,8 +15,8 @@
 const int floorWidth = 192;
 const int floorHeight = 192;
 
-const int screenWidth = 900;
-const int screenHeight = 900;
+const int screenWidth = 1920;
+const int screenHeight = 2400;
 
 const float animationSpeed = 0.05;
 
