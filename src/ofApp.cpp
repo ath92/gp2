@@ -68,7 +68,7 @@ void ofApp::update(){
 	people.update();
 	swarm.update();
 	surface.update();
-	surface.applyForce(mouseX,mouseY);
+	//surface.applyForce(mouseX,mouseY);
 	//surface.applyForce(ofGetWidth()-mouseX,ofGetHeight()-mouseY);
 
 	playground.update();
