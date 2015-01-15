@@ -12,7 +12,7 @@ void WaveSurface::setup()
 	dampingTarget = 0.0001;
 	forceStrengthTarget = 1;
 	influenceTarget = 3;
-	randomTarget = 0;
+	randomTarget = 40;
 
 	//set aesthetic variables targets
 	opacityTarget = 1;
