@@ -4,7 +4,7 @@
 
 
 
-    
+const float drawSizeFactor = 2.0;    
 
 //--------------------------------------------------------------
 void Swarm::setup(WaveSurface * w){
@@ -239,11 +239,11 @@ void Swarm::draw(){
 			for(int n = NUMBER_OF_TRAILS-1; n > 0; n--){
 				ofVec3f previous = billboardContainers[n-1].getVertex(y*positionPixels.getWidth() + x);
 				billboardContainers[n].setVertex(y*positionPixels.getWidth() + x, previous); 
-				billboardContainers[n].setNormal(y*positionPixels.getWidth()+x,ofVec3f(drawSize / sqrt(n) * billboardSize,0,0));
+				billboardContainers[n].setNormal(y*positionPixels.getWidth()+x,ofVec3f(drawSize * drawSizeFactor / sqrt(n) * billboardSize,0,0));
 			}
 			
 			billboardContainers[0].setVertex(y*positionPixels.getWidth() + x, ofPoint(col.r*xm-xm/2,col.g*ym-ym/2,col.b*zm*zResolution+zValue)); 
-			billboardContainers[0].setNormal(y*positionPixels.getWidth()+x,ofVec3f(drawSize * billboardSize,0,0));
+			billboardContainers[0].setNormal(y*positionPixels.getWidth()+x,ofVec3f(drawSize * drawSizeFactor * billboardSize,0,0));
 
 
 			/*
