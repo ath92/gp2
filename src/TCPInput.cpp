@@ -9,5 +9,6 @@ void TCPInput::setup(People * p){
 void TCPInput::update(){
 	if(tcp.isConnected()) {
         string str = tcp.receive(); // did anything come in
+		cout << str << endl;
     }
 }
