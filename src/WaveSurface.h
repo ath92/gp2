@@ -3,8 +3,8 @@
 #include "ofMain.h"
 
 
-const int width = 20;
-const int height = 20;
+const int width = 100;
+const int height = 100;
 
 class WaveSurface {
 
