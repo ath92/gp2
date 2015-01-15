@@ -12,5 +12,7 @@ public:
 
 	ofxTCPClient tcp;
 	People * people;
+
+	bool basic;
 };
 

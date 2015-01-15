@@ -180,6 +180,7 @@ void UDPInput::matchPeopleToWeights(list<Weight *> currentWeights, list<Person*>
 		//more people than weights
 		//this shouldn't be possible, so remove remaining people
 		//people->removeNotUpdated();
+		//currenly, this is handled by the people class.
 		//no more people, no more weights; return
 		return;
 	}
