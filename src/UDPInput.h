@@ -2,14 +2,19 @@
 #include "ofMain.h"
 #include "ofxNetwork.h"
 #include "People.h"
-#ifndef UDPINPUT
-#define UDPINPUT
+
+const int samePersonDistance = 300;
+struct Weight{
+	ofVec3f weight;
+	Person * person;
+	bool assigned;
+};
 
 class UDPInput
 {
 public:
 	ofxUDPManager udpConnection;
-	vector<ofVec3f> weights;
+	vector<Weight> weights;
 	UDPInput();
 	void setup(People * p);
 	void update();
@@ -17,10 +22,11 @@ public:
 
 	void updatePeople();
 	void updatePeopleAdvanced();
-	ofVec3f popWeight();
+	void matchPeopleToWeights(list<Weight *> currentWeights, list<Person*> currentPeople);
+	Person * findClosestPersonToWeight(ofVec3f weight, Person * firstPerson, Person * secondPerson);
+	Weight popWeight();
 
 	People * people;
-
+	bool basic;
 	bool setupComplete;
 };
-#endif

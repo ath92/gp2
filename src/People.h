@@ -9,10 +9,14 @@ class People {
 	public:
 		Person * addPerson();
 		void setup(WaveSurface * ws);
+		void beforeUpdate();
 		void update();
+		void draw();
 		void removePerson(Person * p);
 		void movePerson(Person * p);
 		void clear();
+
+		void removeNotUpdated();
 
 		//implement tracking
 

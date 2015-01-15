@@ -95,6 +95,7 @@ void ofApp::draw(){
 	surface.draw();
 	swarm.draw();
 	cam.end();
+	people.draw();
 	fbo.end();
 	ofScale(xFactor,yFactor);
 	fbo.draw(0,0,ofGetWidth(),ofGetHeight());
@@ -143,6 +144,9 @@ void ofApp::keyPressed(int key){
 	} else if(key=='i'){
 		//setup Connection
 		connection.setup(&people);
+	} else if(key=='o'){
+		//setup Connection
+		connection.basic = !connection.basic;
 	}
 }
 

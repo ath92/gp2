@@ -87,7 +87,7 @@ vec3 flock(vec3 p, vec3 v){
 
 
 	//tendency to go down
-	v.z -= p.z*0.00015;
+	v.z -= p.z*0.0015;
 
 	//but not too high
 	if(p.z > 0.195) v.z -= (p.z-0.195)/20;
@@ -106,6 +106,7 @@ vec3 flock(vec3 p, vec3 v){
     vec3 wsVec = texture2DRect( waveSurface, vec2(int(p.x*surfaceWidth+0.5),int(p.y*surfaceHeight+0.5))).xyz;//20=surface resolution. +0.5 to round by casting to int
 	v.x += (wsVec.x-0.498)*0.02;//0.498 because there seems to be some sort of rounding error. This fixes it (hacky)
 	v.y += (wsVec.y-0.498)*0.02;
+	v.z += abs((wsVec.x-0.498) + (wsVec.y-0.498))*0.002;
 
     return v;
 }

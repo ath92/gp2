@@ -5,9 +5,22 @@ void People::setup(WaveSurface * ws){
 	this->ws = ws;
 }
 
+void People::beforeUpdate(){
+	for(auto person = begin(people); person != end(people); ++person){
+		(*person)->beforeUpdate();
+    }
+}
+
 void People::update(){
-	for(auto it = begin(people); it != end(people); ++it){
-		(*it)->update();
+	for(auto person = begin(people); person != end(people); ++person){
+		(*person)->update();
+    }
+	removeNotUpdated();
+}
+
+void People::draw(){
+	for(auto person = begin(people); person != end(people); ++person){
+		(*person)->draw();
     }
 }
 
@@ -26,4 +39,14 @@ void People::clear(){
 void People::removePerson(Person * p)
 {
 	people.remove(p);
+}
+
+void People::removeNotUpdated(){
+	list<Person *> newPeople;
+	for(auto person = begin(people); person != end(people); ++person){
+		if((*person)->timeoutCounter < 30){
+			newPeople.push_back((*person));
+		}
+    }
+	people = newPeople;
 }

@@ -105,14 +105,15 @@ void WaveSurface::update(){
 			//if(derivativey[x+y*width] < 50 && derivativey[x+y*width] > -50) derivativey[x+y*width] = 0; 
 
 			derivativePixels.setColor(x,y,ofFloatColor(derivativex[x+y*width]/80 + 0.5, derivativey[x+y*width]/80 + 0.5, 0));
-			mesh.setColor(y*width+x, ofFloatColor(col*redMultiplier*red + .3,col*greenMultiplier*green + .3,col*blueMultiplier*blue + .3,opacity*opacityMultiplier));
+			mesh.setColor(y*width+x, ofFloatColor(col*redMultiplier*red + 0,col*greenMultiplier*green + 0,col*blueMultiplier*blue + 0,opacity*opacityMultiplier));
+			mesh.setColor(y*width+x, ofFloatColor(col*redMultiplier*red + 0.4,col*greenMultiplier*green + 0.4,col*blueMultiplier*blue + 0.4,opacity*opacityMultiplier));
 			//mesh.setColor(y*width+x, ofFloatColor(1,1,1));
 
 			//update the mesh
 			ofVec3f vert = mesh.getVertex(y*width+x);
 			float z = sqrt(abs(grid[y*width+x]))*2;
 			z *= 2;
-			z=0;
+			//z=0;
 			vert.z = grid[y*width+x] > 0 ? z : -z;
 			vert.z += 100;//zoom
 			vert.z += offset[y*width+x];
@@ -130,6 +131,7 @@ void WaveSurface::update(){
 
 void WaveSurface::draw(){
 	if(staystill)cam.reset();
+	ofSetLineWidth(4);
 	//mesh.drawWireframe();
 	ofSetColor(ofColor(0,0,0,.2));
 	ofRect(0,0,ofGetWidth(), ofGetHeight());
