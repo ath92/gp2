@@ -15,8 +15,9 @@ class People {
 		void removePerson(Person * p);
 		void movePerson(Person * p);
 		void clear();
-
 		void removeNotUpdated();
+
+		Person * findByID(int id);
 
 		//implement tracking
 

@@ -4,6 +4,10 @@
 #include "ofxNetwork.h"
 #include "People.h"
 
+struct Tracker{
+	int x, y, z, id;
+};
+
 class TCPInput
 {
 public:
@@ -14,5 +18,7 @@ public:
 	People * people;
 
 	bool basic;
+
+	vector<Tracker> trackers;
 };
 

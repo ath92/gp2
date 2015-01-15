@@ -20,10 +20,15 @@ void Person::update(){
 void Person::draw(){
 	ofSetColor(color);
 	ofCircle(ofPoint(pos.x,pos.y, 0), 20);
+	ofSetColor(255);
 }
 
 void Person::setPosition(ofVec2f p){
 	timeoutCounter = 0;
 	assigned = true;
 	pos = p;
+}
+
+void Person::setID(int n){
+	id = n;
 }

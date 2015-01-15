@@ -11,6 +11,7 @@ public:
 	void update();
 	void draw();
 	void setPosition(ofVec2f p);
+	void setID(int n);
 	ofVec2f pos;
 	WaveSurface * ws;
 
@@ -19,5 +20,7 @@ public:
 	bool assigned;
 
 	ofColor color;
+
+	int id;
 };
 

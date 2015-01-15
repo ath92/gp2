@@ -50,3 +50,14 @@ void People::removeNotUpdated(){
     }
 	people = newPeople;
 }
+
+Person * People::findByID(int id){
+	for(auto person = begin(people); person != end(people); ++person){
+		if((*person)->id == id){
+			return (*person);
+		}
+    }
+	Person * p = addPerson();
+	p->setID(id);
+	return p;
+}
