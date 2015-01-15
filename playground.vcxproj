@@ -222,6 +222,7 @@
     <ClInclude Include="src\pingPongBuffer.h" />
     <ClInclude Include="src\Playground.h" />
     <ClInclude Include="src\PlaygroundTest.h" />
+    <ClInclude Include="src\strtk.hpp" />
     <ClInclude Include="src\SurfaceStatus.h" />
     <ClInclude Include="src\Swarm.h" />
     <ClInclude Include="src\TCPInput.h" />

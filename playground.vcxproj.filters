@@ -445,6 +445,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\PlaygroundTest.h" />
+    <ClInclude Include="src\strtk.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
