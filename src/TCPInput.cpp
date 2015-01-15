@@ -62,7 +62,7 @@ void TCPInput::update(){
 		//people->clear();
 		for(auto tracker = begin(trackers); tracker != end(trackers); ++tracker){
 			Person * p = people->findByID((*tracker).id);
-			float factoredX = ((*tracker).x+6000) *ofGetWidth()/(float)trackerWidth;
+			float factoredX = ofGetWidth() - ((*tracker).x+6000) *ofGetWidth()/(float)trackerWidth;
 			float factoredY = ((*tracker).y+40000) *ofGetHeight()/(float)trackerHeight;
 			p->setPosition(ofVec2f(factoredX , factoredY));//update factors.
 			cout << p->pos.x << endl;
