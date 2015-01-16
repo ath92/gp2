@@ -8,7 +8,7 @@ Person::Person(WaveSurface * ws)
 	color = ofColor(ofRandom(255),ofRandom(255),ofRandom(255));
 
 	//parameters for behavior tracking
-	energyDamping = 0.98;
+	energyDamping = 0.995;
 	energy = 0;
 
 	directionDamping = 0.98;
@@ -41,7 +41,7 @@ void Person::setPosition(ofVec2f p){
 		assigned = true;
 		pos = p;
 	}
-	if(energy > 100){
+	if(energy > 100){//glitch when entering the floor for the first time. This shuts it down
 		energy = 0;
 		direction = ofVec2f(0,0);
 	}

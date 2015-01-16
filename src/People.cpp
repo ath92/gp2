@@ -3,6 +3,9 @@
 
 void People::setup(WaveSurface * ws){
 	this->ws = ws;
+	energeticCalm = false;//start with calm
+	organizedChaotic = false;//start with organized
+	warmCold = false;//start with cold
 }
 
 void People::beforeUpdate(){
@@ -17,6 +20,8 @@ void People::update(){
 		(*person)->update();
     }
 	removeNotUpdated();
+
+	updateState();
 }
 
 void People::draw(){
@@ -65,16 +70,29 @@ Person * People::findByID(int id){
 
 void People::updateBehavior(){
 	//get average distance between position vectors
+
 	//get average distance between velocity vectors
 	//get average energy of all people
 	float totalEnergy = 0;
 	float totalDistance = 0;
+	float totalOrganization = 0;
 	for(auto person = begin(people); person != end(people); ++person){
 		totalEnergy += (*person)->energy;
+		for(auto otherPerson = begin(people); otherPerson != end(people); ++otherPerson){
+			totalDistance += (*person)->pos.distance((*otherPerson)->pos);
+			totalOrganization += (*person)->direction.distance((*otherPerson)->direction);
+		}
     }
+	proximity = totalDistance / (people.size() * people.size());
 	energy = totalEnergy / people.size();
 
 	cout << "energy: " << energy << endl;
 	cout << "organization: " << organization << endl;
 	cout << "proximity: " << proximity << endl;
+}
+
+void People::updateState(){
+	float energyDifference = abs(energy - energyThreshold);
+	float proximityDifference = abs(proximity - proximityThreshold);
+	float organizationDifference = abs(organization - organizationThreshold);
 }

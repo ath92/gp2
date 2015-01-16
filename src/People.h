@@ -4,6 +4,15 @@
 #include "Person.h"
 #include "WaveSurface.h"
 
+
+const int characteristicTime = 120;
+
+
+//thresholds between states
+const float energyThreshold = 20;
+const float proximityThreshold = 10;
+const float organizationThreshold = 10;
+
 class People {
 
 	public:
@@ -28,5 +37,13 @@ class People {
 		float proximity;//average distance of position vectors
 		float organization;//average distance of velocity vectors
 
+
+		//states
+		bool energeticCalm;
+		bool organizedChaotic;
+		bool warmCold;
+
+
 		void updateBehavior();
+		void updateState();
 };
