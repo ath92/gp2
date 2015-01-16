@@ -12,6 +12,7 @@ void People::beforeUpdate(){
 }
 
 void People::update(){
+	updateBehavior();
 	for(auto person = begin(people); person != end(people); ++person){
 		(*person)->update();
     }
@@ -49,7 +50,6 @@ void People::removeNotUpdated(){
 		}
     }
 	people = newPeople;
-	updateBehavior();
 }
 
 Person * People::findByID(int id){
