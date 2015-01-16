@@ -68,6 +68,7 @@ void People::updateBehavior(){
 	//get average distance between velocity vectors
 	//get average energy of all people
 	float totalEnergy = 0;
+	float totalDistance = 0;
 	for(auto person = begin(people); person != end(people); ++person){
 		totalEnergy += (*person)->energy;
     }

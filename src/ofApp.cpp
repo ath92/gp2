@@ -20,7 +20,7 @@ void ofApp::setup(){
 	//p->setPosition(ofVec2f(1000,500));
 
 	
-	ofSetFrameRate(30);
+	ofSetFrameRate(60);
 	
 	saveNames.push_back("Energetic");
 	saveNames.push_back("Chaotic");

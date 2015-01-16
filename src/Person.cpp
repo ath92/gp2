@@ -23,23 +23,23 @@ void Person::update(){
 	timeoutCounter++;
 	ws->applyForce(pos.x,pos.y);
 	energy *= energyDamping;
-	cout << "energy: " << energy << endl;
 }
 
 void Person::draw(){
 	ofSetColor(color);
 	ofCircle(ofPoint(pos.x,pos.y, 0), 20);
-	ofSetColor(color.invert());
 	ofLine(ofPoint(pos.x,pos.y, 0), ofPoint(pos.x+direction.x*3,pos.y+direction.y*3, 0));
 	ofSetColor(255);
 }
 
 void Person::setPosition(ofVec2f p){
-	energy = p.distance(pos) > energy ? p.distance(pos) : energy;
-	direction = direction * directionDamping + (p-pos) * (1-directionDamping);
-	timeoutCounter = 0;
-	assigned = true;
-	pos = p;
+	if(p.x > 0 && p.x < ofGetWidth() && p.y > 0 && p.y < ofGetHeight()){
+		energy = p.distance(pos) > energy ? p.distance(pos) : energy;
+		direction = direction * directionDamping + (p-pos) * (1-directionDamping);
+		timeoutCounter = 0;
+		assigned = true;
+		pos = p;
+	}
 }
 
 void Person::setID(int n){
