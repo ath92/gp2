@@ -11,7 +11,7 @@ Person::Person(WaveSurface * ws)
 	energyDamping = 0.98;
 	energy = 0;
 
-	directionDamping = 0.5;
+	directionDamping = 0.98;
 	direction = ofVec2f(0,0);
 }
 
