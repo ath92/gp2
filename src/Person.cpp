@@ -41,15 +41,10 @@ void Person::setPosition(ofVec2f p){
 		timeoutCounter = 0;
 		assigned = true;
 		pos = p;
-	} else {
-		newPerson = true;
 	}
-	//when a new person enters the system, their energy should not be initialized as they have no previous position and their velocity can therefore not be calculated.
-	if(newPerson){
-		cout << "new person!" << endl;
-		newPerson = false;
-		direction = ofVec2f(0,0);
+	if(energy > 100){
 		energy = 0;
+		direction = ofVec2f(0,0);
 	}
 }
 

@@ -22,7 +22,6 @@ public:
 	ofColor color;
 
 	int id;
-	bool newPerson;
 
 	//Behavior tracking
 
