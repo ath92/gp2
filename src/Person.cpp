@@ -35,15 +35,15 @@ void Person::draw(){
 }
 
 void Person::setPosition(ofVec2f p){
-	if(p.x > 0 && p.x < ofGetWidth() && p.y > 0 && p.y < ofGetHeight()){
-		energy = p.distance(pos) > energy ? p.distance(pos) : energy;
-		direction = direction * directionDamping + (p-pos) * (1-directionDamping);
-		timeoutCounter = 0;
-		assigned = true;
-		pos = p;
-	}
+	energy = p.distance(pos) > energy ? p.distance(pos) : energy;
+	direction = direction * directionDamping + (p-pos) * (1-directionDamping);
+	timeoutCounter = 0;
+	assigned = true;
+	pos = p;
+	
 	//when a new person enters the system, their energy should not be initialized as they have no previous position and their velocity can therefore not be calculated.
 	if(newPerson){
+		cout << "new person!" << endl;
 		newPerson = false;
 		direction = ofVec2f(0,0);
 		energy = 0;
