@@ -85,6 +85,7 @@ void People::updateBehavior(){
     }
 	proximity = totalDistance / (people.size() * people.size());
 	energy = totalEnergy / people.size();
+	organization = totalOrganization / (people.size() * people.size());
 
 	cout << "energy: " << energy << endl;
 	cout << "organization: " << organization << endl;
