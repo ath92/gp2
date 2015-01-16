@@ -83,8 +83,8 @@ void People::updateBehavior(){
 			totalOrganization += (*person)->direction.distance((*otherPerson)->direction);
 		}
     }
-	proximity = totalDistance / (people.size() * people.size());
 	energy = totalEnergy / people.size();
+	proximity = totalDistance / (people.size() * people.size()) / energy;//Divide by energy because we only want to track this if people aren't moving. 
 	organization = (totalOrganization / (people.size() * people.size()) +100/energy) * 100;//Divided by energy to assure that the state is only entered when people are actually moving. *100 to easily identify
 	cout << "energy: " << energy << endl;
 	cout << "organization: " << organization << endl;
