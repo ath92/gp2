@@ -14,7 +14,6 @@ Person::Person(WaveSurface * ws)
 	directionDamping = 0.98;
 	direction = ofVec2f(0,0);
 	
-	newPerson = true;
 }
 
 void Person::beforeUpdate(){
