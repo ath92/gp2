@@ -22,6 +22,7 @@ public:
 	ofColor color;
 
 	int id;
+	bool newPerson;
 
 	//Behavior tracking
 
@@ -31,6 +32,5 @@ public:
 	ofVec2f direction;
 	float directionDamping;
 
-	
 };
 

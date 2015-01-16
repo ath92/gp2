@@ -64,6 +64,10 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+	counter++;
+
+	if(counter%2==1) return;//60fps test
+
 	connection.update();
 	people.update();
 	swarm.update();

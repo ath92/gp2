@@ -13,6 +13,8 @@ Person::Person(WaveSurface * ws)
 
 	directionDamping = 0.98;
 	direction = ofVec2f(0,0);
+	
+	newPerson = true;
 }
 
 void Person::beforeUpdate(){
@@ -39,6 +41,12 @@ void Person::setPosition(ofVec2f p){
 		timeoutCounter = 0;
 		assigned = true;
 		pos = p;
+	}
+	//when a new person enters the system, their energy should not be initialized as they have no previous position and their velocity can therefore not be calculated.
+	if(newPerson){
+		newPerson = false;
+		direction = ofVec2f(0,0);
+		energy = 0;
 	}
 }
 
