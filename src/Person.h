@@ -22,5 +22,15 @@ public:
 	ofColor color;
 
 	int id;
+
+	//Behavior tracking
+
+	float energy;
+	float energyDamping;
+
+	ofVec2f direction;
+	float directionDamping;
+
+	
 };
 

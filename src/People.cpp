@@ -49,6 +49,7 @@ void People::removeNotUpdated(){
 		}
     }
 	people = newPeople;
+	updateBehavior();
 }
 
 Person * People::findByID(int id){
@@ -60,4 +61,19 @@ Person * People::findByID(int id){
 	Person * p = addPerson();
 	p->setID(id);
 	return p;
+}
+
+void People::updateBehavior(){
+	//get average distance between position vectors
+	//get average distance between velocity vectors
+	//get average energy of all people
+	float totalEnergy = 0;
+	for(auto person = begin(people); person != end(people); ++person){
+		totalEnergy += (*person)->energy;
+    }
+	energy = totalEnergy / people.size();
+
+	cout << "energy: " << energy << endl;
+	cout << "organization: " << organization << endl;
+	cout << "proximity: " << proximity << endl;
 }

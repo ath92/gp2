@@ -190,16 +190,12 @@
     <ClCompile Include="src\WaveSurface.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Playground.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\UDPInput.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\TCPInput.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlaygroundTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -435,17 +431,10 @@
     <ClInclude Include="src\WaveSurface.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Playground.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\UDPInput.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\TCPInput.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PlaygroundTest.h" />
-    <ClInclude Include="src\strtk.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

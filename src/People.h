@@ -19,9 +19,14 @@ class People {
 
 		Person * findByID(int id);
 
-		//implement tracking
-
 		list<Person *> people;
 		WaveSurface * ws;
 
+		//Behavior
+
+		float energy;//average of energy of all people on the floor
+		float proximity;//average distance of position vectors
+		float organization;//average distance of velocity vectors
+
+		void updateBehavior();
 };

@@ -71,8 +71,6 @@ void ofApp::update(){
 	//surface.applyForce(mouseX,mouseY);
 	//surface.applyForce(ofGetWidth()-mouseX,ofGetHeight()-mouseY);
 
-	playground.update();
-
 	//video.update();
 	//post.init(ofGetWidth(), ofGetHeight());
 	//post.createPass<BloomPass>();
