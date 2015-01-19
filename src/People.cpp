@@ -83,7 +83,7 @@ void People::updateBehavior(){
 		totalEnergy += (*person)->energy;
 		for(auto otherPerson = begin(people); otherPerson != end(people); ++otherPerson){
 			totalDistance += (*person)->pos.distance((*otherPerson)->pos);
-			totalChaos += (*person)->direction.distance((*otherPerson)->direction);
+			totalChaos += abs((*person)->direction.length() - (*otherPerson)->direction.length());
 		}
     }
 	energy = totalEnergy / people.size();
