@@ -66,7 +66,7 @@ void TCPInput::update(){
 			float factoredY = ((*tracker).y+40000) *ofGetHeight()/(float)trackerHeight;
 			//invert axes for smartxp setup and do some other things differently
 			factoredX = ((*tracker).y+41500) *ofGetWidth()/(float)52500;
-			factoredY = ((*tracker).x+6000) *ofGetHeight()/(float)68000;
+			factoredY = ((*tracker).x+12000) *ofGetHeight()/(float)68000;
 			p->setPosition(ofVec2f(factoredX , factoredY));//update factors.
 		}
     }
