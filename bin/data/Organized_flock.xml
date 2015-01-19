@@ -13,7 +13,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>repelStrength</Name>
-    <Value>20.000000000</Value>
+    <Value>9.211822510</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -38,17 +38,17 @@
 <Widget>
     <Kind>4</Kind>
     <Name>separationDistance</Name>
-    <Value>0.148768470</Value>
+    <Value>0.853694558</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>neighborDistance</Name>
-    <Value>2.051724195</Value>
+    <Value>4.955665112</Value>
 </Widget>
 <Widget>
     <Kind>42</Kind>
     <Name>drawSize</Name>
-    <Value>99</Value>
+    <Value>19</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -58,7 +58,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>opacity</Name>
-    <Value>0.884729087</Value>
+    <Value>0.973399043</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>

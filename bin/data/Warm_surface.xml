@@ -38,12 +38,12 @@
 <Widget>
     <Kind>4</Kind>
     <Name>redMultiplier</Name>
-    <Value>20.507389069</Value>
+    <Value>2.463054180</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>greenMultiplier</Name>
-    <Value>7.827586174</Value>
+    <Value>1.000000000</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -53,15 +53,15 @@
 <Widget>
     <Kind>4</Kind>
     <Name>red</Name>
-    <Value>1.261083722</Value>
+    <Value>1.931034446</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>green</Name>
-    <Value>0.827586234</Value>
+    <Value>0.689655185</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>blue</Name>
-    <Value>1.458128095</Value>
+    <Value>0.325123161</Value>
 </Widget>
