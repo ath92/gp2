@@ -13,6 +13,8 @@ const float energyThreshold = 20;
 const float proximityThreshold = 10;
 const float organizationThreshold = 10;
 
+const float chaosDamping = 0.95;
+
 class People {
 
 	public:
@@ -35,7 +37,7 @@ class People {
 
 		float energy;//average of energy of all people on the floor
 		float proximity;//average distance of position vectors
-		float organization;//average distance of velocity vectors
+		float chaos;//average distance of velocity vectors
 
 
 		//states

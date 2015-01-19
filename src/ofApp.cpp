@@ -76,6 +76,8 @@ void ofApp::update(){
 	//surface.applyForce(ofGetWidth()-mouseX,ofGetHeight()-mouseY);
 	Person * mousePerson = people.findByID(-1);
 	mousePerson->setPosition(ofVec2f(mouseX, mouseY));
+	Person * mousePerson2 = people.findByID(-2);
+	mousePerson2->setPosition(ofVec2f(ofGetWidth()-mouseX, mouseY));
 	//video.update();
 	//post.init(ofGetWidth(), ofGetHeight());
 	//post.createPass<BloomPass>();

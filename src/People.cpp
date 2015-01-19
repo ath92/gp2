@@ -75,24 +75,26 @@ void People::updateBehavior(){
 	//get average energy of all people
 	float totalEnergy = 0;
 	float totalDistance = 0;
-	float totalOrganization = 0;
+	float totalChaos = 0;
 	for(auto person = begin(people); person != end(people); ++person){
 		totalEnergy += (*person)->energy;
 		for(auto otherPerson = begin(people); otherPerson != end(people); ++otherPerson){
 			totalDistance += (*person)->pos.distance((*otherPerson)->pos);
-			totalOrganization += (*person)->direction.distance((*otherPerson)->direction);
+			totalChaos += (*person)->direction.distance((*otherPerson)->direction);
 		}
     }
 	energy = totalEnergy / people.size();
 	proximity = totalDistance / (people.size() * people.size()) * energy / 10;//Divide by energy because we only want to track this if people aren't moving. 
-	organization = (totalOrganization / (people.size() * people.size()) +100/energy) * 100;//Divided by energy to assure that the state is only entered when people are actually moving. *100 to easily identify
+	float currentChaos = totalChaos / (people.size() * people.size()) * energy;//Multiplied by energy because we only want chaos when there is energy.
+	chaos = currentChaos > chaos ? currentChaos : chaos;
+	chaos *= chaosDamping;
 	cout << "energy: " << energy << endl;
-	cout << "organization: " << organization << endl;
+	cout << "chaos: " << chaos << endl;
 	cout << "proximity: " << proximity << endl;
 }
 
 void People::updateState(){
 	float energyDifference = abs(energy - energyThreshold);
 	float proximityDifference = abs(proximity - proximityThreshold);
-	float organizationDifference = abs(organization - organizationThreshold);
+	float organizationDifference = abs(chaos - organizationThreshold);
 }
