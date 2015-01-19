@@ -1,11 +1,14 @@
 #include "People.h"
 
 
-void People::setup(WaveSurface * ws){
+void People::setup(WaveSurface * ws, FlockStatus * flockStatus, SurfaceStatus * surfaceStatus){
 	this->ws = ws;
 	energeticCalm = false;//start with calm
 	organizedChaotic = false;//start with organized
 	warmCold = false;//start with cold
+
+	fs = flockStatus;
+	ss = surfaceStatus;
 }
 
 void People::beforeUpdate(){
@@ -84,17 +87,55 @@ void People::updateBehavior(){
 		}
     }
 	energy = totalEnergy / people.size();
-	proximity = totalDistance / (people.size() * people.size()) * energy / 10;//Divide by energy because we only want to track this if people aren't moving. 
+	proximity = totalDistance / (people.size() * people.size());//Divide by energy because we only want to track this if people aren't moving. 
 	float currentChaos = totalChaos / (people.size() * people.size()) * energy;//Multiplied by energy because we only want chaos when there is energy.
 	chaos = currentChaos > chaos ? currentChaos : chaos;
 	chaos *= chaosDamping;
 	cout << "energy: " << energy << endl;
 	cout << "chaos: " << chaos << endl;
 	cout << "proximity: " << proximity << endl;
+	updateState();
 }
 
 void People::updateState(){
-	float energyDifference = abs(energy - energyThreshold);
-	float proximityDifference = abs(proximity - proximityThreshold);
-	float organizationDifference = abs(chaos - organizationThreshold);
+	counter++;
+	if(counter%characteristicTime == 0){
+		//update status;
+		if(people.size() == 0){
+			ss->gui->loadSettings("Calm_surface.xml");
+			fs->gui->loadSettings("Calm_flock.xml");
+		} else if(people.size() == 1){
+			if(energy > energyThreshold){
+				//change to energetic
+				ss->gui->loadSettings("Calm_surface.xml");
+				fs->gui->loadSettings("Calm_flock.xml");
+			} else {
+				//change to calm
+				ss->gui->loadSettings("Calm_surface.xml");
+				fs->gui->loadSettings("Calm_flock.xml");
+			}
+		} else{
+			if(energy > energyThreshold){
+				if(chaos > chaosThreshold){
+					//change to chaotic
+					ss->gui->loadSettings("Chaotic_surface.xml");
+					fs->gui->loadSettings("Chaotic_flock.xml");
+				} else {
+					//chane to organized
+					ss->gui->loadSettings("Organized_surface.xml");
+					fs->gui->loadSettings("Organized_flock.xml");
+				}
+			} else {
+				if(proximity > proximityThreshold){
+					//change to cold
+					ss->gui->loadSettings("Cold_surface.xml");
+					fs->gui->loadSettings("Cold_flock.xml");
+				} else {
+					//chane to warm
+					ss->gui->loadSettings("Warm_surface.xml");
+					fs->gui->loadSettings("Warm_flock.xml");
+				}
+			}
+		}
+	}
 }

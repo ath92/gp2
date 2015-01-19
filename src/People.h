@@ -3,6 +3,8 @@
 #include "ofMain.h"
 #include "Person.h"
 #include "WaveSurface.h"
+#include "FlockStatus.h"
+#include "SurfaceStatus.h"
 
 
 const int characteristicTime = 120;
@@ -10,8 +12,8 @@ const int characteristicTime = 120;
 
 //thresholds between states
 const float energyThreshold = 20;
-const float proximityThreshold = 10;
-const float organizationThreshold = 10;
+const float proximityThreshold = 175;
+const float chaosThreshold = 100;
 
 const float chaosDamping = 0.95;
 
@@ -19,7 +21,7 @@ class People {
 
 	public:
 		Person * addPerson();
-		void setup(WaveSurface * ws);
+		void setup(WaveSurface * ws, FlockStatus * flockStatus, SurfaceStatus * surfaceStatus);
 		void beforeUpdate();
 		void update();
 		void draw();
@@ -33,11 +35,16 @@ class People {
 		list<Person *> people;
 		WaveSurface * ws;
 
+		FlockStatus * fs;
+		SurfaceStatus * ss;
+
 		//Behavior
 
 		float energy;//average of energy of all people on the floor
 		float proximity;//average distance of position vectors
 		float chaos;//average distance of velocity vectors
+
+		int counter;
 
 
 		//states

@@ -14,7 +14,7 @@ void ofApp::setup(){
 	surfaceStatus.setup(&surface);
 
 	//setup people tracking
-	people.setup(&surface);
+	people.setup(&surface, &flockStatus, &surfaceStatus);
 	//add one person to arbitrary position for testing purposes
 	//Person * p = people.addPerson();
 	//p->setPosition(ofVec2f(1000,500));
