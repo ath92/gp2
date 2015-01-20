@@ -9,7 +9,7 @@ Person::Person(WaveSurface * ws)
 
 	//parameters for behavior tracking
 	energyDamping = 0.995;
-	energy = 0;
+	energy = 0.7;//some slight damping to filter out the worst inaccuracies of the kinect system
 
 	directionDamping = 0;
 	direction = ofVec2f(0,0);

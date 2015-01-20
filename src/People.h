@@ -11,7 +11,7 @@ const int characteristicTime = 120;
 
 
 //thresholds between states
-const float energyThreshold = 20;
+const float energyThreshold = 30;
 const float proximityThreshold = 175;
 const float chaosThreshold = 150;
 

@@ -78,9 +78,6 @@ void ofApp::update(){
 	mousePerson->setPosition(ofVec2f(mouseX, mouseY));
 	Person * mousePerson2 = people.findByID(-2);
 	mousePerson2->setPosition(ofVec2f(ofGetWidth()-100, 100));*/
-	//video.update();
-	//post.init(ofGetWidth(), ofGetHeight());
-	//post.createPass<BloomPass>();
 }
 
 //--------------------------------------------------------------

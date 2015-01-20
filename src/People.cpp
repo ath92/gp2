@@ -99,6 +99,7 @@ void People::updateBehavior(){
 
 void People::updateState(){
 	counter++;
+	
 	if(counter%characteristicTime == 0){
 		//update status;
 		if(people.size() == 0){
@@ -107,8 +108,8 @@ void People::updateState(){
 		} else if(people.size() == 1){
 			if(energy > energyThreshold){
 				//change to energetic
-				ss->gui->loadSettings("Calm_surface.xml");
-				fs->gui->loadSettings("Calm_flock.xml");
+				ss->gui->loadSettings("Engergetic_surface.xml");
+				fs->gui->loadSettings("Engergetic_flock.xml");
 			} else {
 				//change to calm
 				ss->gui->loadSettings("Calm_surface.xml");
@@ -138,4 +139,5 @@ void People::updateState(){
 			}
 		}
 	}
+	
 }
