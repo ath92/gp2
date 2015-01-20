@@ -108,8 +108,8 @@ void People::updateState(){
 		} else if(people.size() == 1){
 			if(energy > energyThreshold){
 				//change to energetic
-				ss->gui->loadSettings("Engergetic_surface.xml");
-				fs->gui->loadSettings("Engergetic_flock.xml");
+				ss->gui->loadSettings("Energetic_surface.xml");
+				fs->gui->loadSettings("Energetic_flock.xml");
 			} else {
 				//change to calm
 				ss->gui->loadSettings("Calm_surface.xml");
