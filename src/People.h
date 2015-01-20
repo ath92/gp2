@@ -13,7 +13,7 @@ const int characteristicTime = 120;
 //thresholds between states
 const float energyThreshold = 50;
 const float proximityThreshold = 175;
-const float chaosThreshold = 150;
+const float chaosThreshold = 200;
 const float multiEnergyThreshold = 20;
 
 const float chaosDamping = 0.95;
