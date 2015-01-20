@@ -14,7 +14,7 @@ const int characteristicTime = 120;
 const float energyThreshold = 50;
 const float proximityThreshold = 260;
 const float chaosThreshold = 200;
-const float multiEnergyThreshold = 30;
+const float multiEnergyThreshold = 25;
 
 const float chaosDamping = 0.95;
 
