@@ -116,7 +116,7 @@ void People::updateState(){
 				fs->gui->loadSettings("Calm_flock.xml");
 			}
 		} else{
-			if(energy > energyThreshold){
+			if(energy > multiEnergyThreshold){
 				if(chaos > chaosThreshold){
 					//change to chaotic
 					ss->gui->loadSettings("Chaotic_surface.xml");
