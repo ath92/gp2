@@ -38,7 +38,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>separationDistance</Name>
-    <Value>0.853694558</Value>
+    <Value>0.915763557</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -48,7 +48,7 @@
 <Widget>
     <Kind>42</Kind>
     <Name>drawSize</Name>
-    <Value>42</Value>
+    <Value>65</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -78,15 +78,15 @@
 <Widget>
     <Kind>4</Kind>
     <Name>red</Name>
-    <Value>0.625615776</Value>
+    <Value>0.985221684</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>green</Name>
-    <Value>0.635468006</Value>
+    <Value>0.980295539</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>blue</Name>
-    <Value>0.901477814</Value>
+    <Value>0.975369453</Value>
 </Widget>
