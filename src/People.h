@@ -30,6 +30,10 @@ const float multiEnergyThreshold = 20;
 
 const float chaosDamping = 0.95;
 
+//misc vars
+const int numberOfStates = 6;
+const string states[numberOfStates] = {"Energetic", "Chaotic", "Cold", "Calm", "Organized", "Warm"};
+
 class People {
 
 	public:
@@ -68,4 +72,6 @@ class People {
 
 		void updateBehavior();
 		void updateState();
+
+		int currentState;
 };

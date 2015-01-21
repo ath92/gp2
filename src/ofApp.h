@@ -9,6 +9,7 @@
 #include "People.h"
 #include "UDPInput.h"
 #include "TCPInput.h"
+#include "StateLogger.h"
 
 const int floorWidth = 192;
 const int floorHeight = 192;
@@ -61,4 +62,7 @@ class ofApp : public ofBaseApp{
 		//UDPInput connection;
 		TCPInput connection;
 		ofVideoPlayer video;
+
+		//log states
+		StateLogger stateLogger;
 };

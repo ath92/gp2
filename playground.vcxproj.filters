@@ -196,6 +196,9 @@
     <ClCompile Include="src\TCPInput.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\StateLogger.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -435,6 +438,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\TCPInput.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StateLogger.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

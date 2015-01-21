@@ -15,6 +15,7 @@ void ofApp::setup(){
 
 	//setup people tracking
 	people.setup(&surface, &flockStatus, &surfaceStatus);
+	stateLogger.setup(&people);
 	//add one person to arbitrary position for testing purposes
 	//Person * p = people.addPerson();
 	//p->setPosition(ofVec2f(1000,500));
@@ -72,6 +73,7 @@ void ofApp::update(){
 	people.update();
 	swarm.update();
 	surface.update();
+	stateLogger.update();
 	//surface.applyForce(mouseX,mouseY);
 	//surface.applyForce(ofGetWidth()-mouseX,ofGetHeight()-mouseY);
 	/*Person * mousePerson = people.findByID(-1);

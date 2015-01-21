@@ -9,6 +9,8 @@ void People::setup(WaveSurface * ws, FlockStatus * flockStatus, SurfaceStatus * 
 
 	fs = flockStatus;
 	ss = surfaceStatus;
+
+	currentState = 3;//start with calm.
 }
 
 void People::beforeUpdate(){
@@ -103,43 +105,39 @@ void People::updateState(){
 	if(counter%characteristicTime == 0){
 		//update status;
 		if(people.size() == 0){
-			ss->gui->loadSettings("Calm_surface.xml");
-			fs->gui->loadSettings("Calm_flock.xml");
-			//ss->gui->loadSettings("Organized_surface.xml");
-			//fs->gui->loadSettings("Organized_flock.xml");
+			//change to calm
+			currentState = 3;
 		} else if(people.size() == 1){
 			if(energy > energyThreshold){
 				//change to energetic
-				ss->gui->loadSettings("Energetic_surface.xml");
-				fs->gui->loadSettings("Energetic_flock.xml");
+				currentState = 0;
 			} else {
 				//change to calm
-				ss->gui->loadSettings("Calm_surface.xml");
-				fs->gui->loadSettings("Calm_flock.xml");
+				currentState = 3;
 			}
 		} else{
 			if(energy > multiEnergyThreshold){
 				if(chaos > chaosThreshold){
 					//change to chaotic
-					ss->gui->loadSettings("Chaotic_surface.xml");
-					fs->gui->loadSettings("Chaotic_flock.xml");
+					currentState = 1;
 				} else {
 					//chane to organized
-					ss->gui->loadSettings("Organized_surface.xml");
-					fs->gui->loadSettings("Organized_flock.xml");
+					currentState = 4;
 				}
 			} else {
 				if(proximity > proximityThreshold){
 					//change to cold
-					ss->gui->loadSettings("Cold_surface.xml");
-					fs->gui->loadSettings("Cold_flock.xml");
+					currentState = 2;
 				} else {
 					//chane to warm
-					ss->gui->loadSettings("Warm_surface.xml");
-					fs->gui->loadSettings("Warm_flock.xml");
+					currentState = 5;
 				}
 			}
 		}
+		ss->gui->loadSettings(states[currentState] + "_surface.xml");
+		fs->gui->loadSettings(states[currentState] + "_flock.xml");
 	}
+
+
 	
 }
