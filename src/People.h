@@ -13,23 +13,24 @@ const int characteristicTime = 120;
 //thresholds between states
 
 //Playground in smartxp
-/*
+
 const float energyThreshold = 50;
 const float proximityThreshold = 260;
 const float chaosThreshold = 200;
 const float multiEnergyThreshold = 25;
 
 const float chaosDamping = 0.95;
-*/
+/**/
 
 //playground in designlab
+/*
 const float energyThreshold = 24;
 const float proximityThreshold = 260;
 const float chaosThreshold = 150;
 const float multiEnergyThreshold = 20;
 
 const float chaosDamping = 0.95;
-
+/**/
 //misc vars
 const int numberOfStates = 6;
 const string states[numberOfStates] = {"Energetic", "Chaotic", "Cold", "Calm", "Organized", "Warm"};
