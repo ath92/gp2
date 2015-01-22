@@ -8,7 +8,7 @@ Person::Person(WaveSurface * ws)
 	color = ofColor(ofRandom(255),ofRandom(255),ofRandom(255));
 
 	//parameters for behavior tracking
-	energyDamping = 0.995;
+	energyDamping = 0.998;
 	energy = 0;
 
 	directionDamping = 0.7;//some damping for direction

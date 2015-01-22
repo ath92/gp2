@@ -14,7 +14,7 @@ const int characteristicTime = 120;
 
 //Playground in smartxp
 
-const float energyThreshold = 50;
+const float energyThreshold = 43;
 const float proximityThreshold = 260;
 const float chaosThreshold = 200;
 const float multiEnergyThreshold = 25;
