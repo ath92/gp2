@@ -1,3 +1,3 @@
 ofxNetwork
-ofxXmlSettings
 ofxUI
+ofxXmlSettings
